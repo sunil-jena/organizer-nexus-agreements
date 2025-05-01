@@ -66,6 +66,7 @@ const mockOrganizers: Organizer[] = [
     address: "789 Beach Road, Chennai, 600001",
     gstDetails: {
       isRegistered: false,
+      gstNumber: null,
     },
     bankDetails: {
       beneficiaryName: "Showtime Entertainment",

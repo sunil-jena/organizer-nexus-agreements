@@ -1,4 +1,5 @@
 
+
 export interface User {
   id: string;
   firstName: string;
@@ -92,3 +93,4 @@ export interface Event {
   commissionAmount: number;
   date: string;
 }
+
