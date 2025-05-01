@@ -30,7 +30,7 @@ export interface BankDetails {
 }
 
 export interface GSTDetails {
-  gstNumber: string;
+  gstNumber: string | null;
   gstCertificateFile?: string;
   isRegistered: boolean;
 }

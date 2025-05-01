@@ -12,12 +12,11 @@ export const generateAgreementPdf = async (
   console.log("Generating PDF for agreement:", agreement);
   console.log("Organizer:", organizer);
   
-  // Find the service types for selected services
+  // Find the selected services
   const selectedServices = agreement.services?.filter(s => s.isSelected).map(service => {
-    const serviceType = serviceTypes.find(st => st.id === service.serviceTypeId);
     return {
-      name: serviceType?.name || "Unknown Service",
-      description: serviceType?.description || "",
+      name: service.serviceType.name,
+      description: service.serviceType.description,
       commissionRate: service.commissionRate
     };
   }) || [];

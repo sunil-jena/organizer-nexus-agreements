@@ -1,10 +1,7 @@
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { FilePlus } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import AgreementsList from "@/components/agreements/AgreementsList";
+import AssignedAgreements from "@/components/agreements/AssignedAgreements";
 import { Agreement } from "@/types";
 
 // Mock data for agreements
@@ -128,7 +125,8 @@ const mockAgreements: Agreement[] = [
       orgName: "Showtime Entertainment",
       address: "789 Beach Road, Chennai, 600001",
       gstDetails: {
-        isRegistered: false
+        isRegistered: false,
+        gstNumber: null
       },
       bankDetails: {
         beneficiaryName: "Showtime Entertainment",
@@ -179,22 +177,7 @@ const Agreements = () => {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-bold tracking-tight">Agreements</h1>
-          <p className="text-muted-foreground">
-            Manage service agreements with organizers
-          </p>
-        </div>
-        <Button onClick={() => navigate("/admin/agreements/create")}>
-          <FilePlus className="mr-2 h-4 w-4" />
-          New Agreement
-        </Button>
-      </div>
-
-      <AgreementsList agreements={agreements} onDelete={handleDelete} />
-    </div>
+    <AssignedAgreements agreements={agreements} />
   );
 };
 

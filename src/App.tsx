@@ -14,6 +14,7 @@ import EditOrganizer from "./pages/admin/EditOrganizer";
 import Agreements from "./pages/admin/Agreements";
 import CreateAgreement from "./pages/admin/CreateAgreement";
 import ViewAgreement from "./pages/admin/ViewAgreement";
+import Settings from "./pages/admin/Settings";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => (
             <Route path="agreements" element={<Agreements />} />
             <Route path="agreements/create" element={<CreateAgreement />} />
             <Route path="agreements/:id" element={<ViewAgreement />} />
+            <Route path="settings" element={<Settings />} />
           </Route>
           
           {/* Catch-all route */}

@@ -32,9 +32,9 @@ const AgreementsList: React.FC<AgreementsListProps> = ({
   const getBadgeVariant = (status: Agreement['status']) => {
     switch (status) {
       case "draft": return "secondary";
-      case "pending": return "warning";
-      case "active": return "success";
-      case "expired": return "default";
+      case "pending": return "outline";
+      case "active": return "default";
+      case "expired": return "outline";
       case "terminated": return "destructive";
       default: return "outline";
     }

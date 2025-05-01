@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -137,9 +136,9 @@ const ViewAgreement = () => {
   const getBadgeVariant = (status: Agreement['status']) => {
     switch (status) {
       case "draft": return "secondary";
-      case "pending": return "warning";
-      case "active": return "success";
-      case "expired": return "default";
+      case "pending": return "outline";
+      case "active": return "default";
+      case "expired": return "outline";
       case "terminated": return "destructive";
       default: return "outline";
     }
@@ -213,14 +212,14 @@ const ViewAgreement = () => {
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Agreements
           </Button>
-          <h1 className="text-2xl font-bold tracking-tight">{agreement.title}</h1>
-          {agreement.description && (
+          <h1 className="text-2xl font-bold tracking-tight">{agreement?.title}</h1>
+          {agreement?.description && (
             <p className="text-muted-foreground">
               {agreement.description}
             </p>
           )}
         </div>
-        {agreement.documentUrl && (
+        {agreement?.documentUrl && (
           <Button asChild>
             <a href={agreement.documentUrl} target="_blank" rel="noopener noreferrer">
               <Download className="mr-2 h-4 w-4" />
@@ -236,10 +235,14 @@ const ViewAgreement = () => {
             <CardHeader>
               <CardTitle>Agreement Details</CardTitle>
               <div className="flex flex-wrap items-center gap-2 mt-2">
-                <Badge variant={getBadgeVariant(agreement.status)}>
-                  {agreement.status.charAt(0).toUpperCase() + agreement.status.slice(1)}
-                </Badge>
-                {getSignatureStatus()}
+                {agreement && (
+                  <>
+                    <Badge variant={getBadgeVariant(agreement.status)}>
+                      {agreement.status.charAt(0).toUpperCase() + agreement.status.slice(1)}
+                    </Badge>
+                    {getSignatureStatus()}
+                  </>
+                )}
               </div>
             </CardHeader>
             <CardContent className="space-y-4">
